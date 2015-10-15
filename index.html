@@ -3,6 +3,9 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script>
+
+    var userName = prompt("What is your name?");
+
     var userChoice = prompt("Do you choose rock, paper or scissors?");
 
     var computerChoice = Math.random();
@@ -17,27 +20,34 @@
 
     var compare = function(userChoice, computerChoice) {
         if (userChoice  === computerChoice) {
-              window.alert("The result is a tie!");
+              document.getElementById("textBox").textContent="You freakin tied!";
+              document.getElementById("winImage").src = "http://katelynandco.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/e/red_tie.jpg";
           } else if(userChoice ==="rock") {
             if (computerChoice==="scissors") {
-                window.alert("Rock wins!");
+              document.getElementById("textBox").textContent=userName + " Wins!";
+              document.getElementById("winImage").src = "http://images.sodahead.com/polls/002690653/4245603595_Charlie_Sheen_Winning_xlarge.jpeg";
           } else {
-                window.alert("Paper wins");
+            document.getElementById("textBox").textContent=userName + " loses!";
+            document.getElementById("winImage").src = "https://media4.giphy.com/media/mcH0upG1TeEak/200_s.gif";
               }
           }
           else if(userChoice==="paper") {
              if(computerChoice ==="rock") {
-                 window.alert("paper wins!");
+               document.getElementById("textBox").textContent=userName + " Wins!";
+               document.getElementById("winImage").src = "http://images.sodahead.com/polls/002690653/4245603595_Charlie_Sheen_Winning_xlarge.jpeg";
              } else {
-                 window.alert("scissors wins!");
+               document.getElementById("textBox").textContent=userName + " loses!";
+               document.getElementById("winImage").src = "https://media4.giphy.com/media/mcH0upG1TeEak/200_s.gif";
              }
           }
 
           else if(userChoice==="scissors") {
               if (computerChoice==="rock") {
-                  window.alert("Rock wins");
+                document.getElementById("textBox").textContent=userName + " loses!";
+                document.getElementById("winImage").src = "https://media4.giphy.com/media/mcH0upG1TeEak/200_s.gif";
               } else {
-                  window.alert("scissors wins");
+                document.getElementById("textBox").textContent=userName + " Wins!";
+                document.getElementById("winImage").src = "http://images.sodahead.com/polls/002690653/4245603595_Charlie_Sheen_Winning_xlarge.jpeg";
               }
           }
       };
@@ -46,6 +56,9 @@
   <body>
     <div class="wrapper">
       <button class="button" onclick="compare(userChoice, computerChoice);">LETS PLAY RPS!</button>
+      <button class="button" onclick="location.reload();">Play Again!</button>
+      <h1><span id="textBox"></span></h1>
+      <img id="winImage" src="http://news.sciencemag.org/sites/default/files/styles/thumb_article_l/public/sn-rockpaper.jpg?itok=KUPinM2n" style="width:304px;height:228px;">
     </div>
   </body>
 
